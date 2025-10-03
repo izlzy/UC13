@@ -62,12 +62,14 @@ VALUES
   ('Placas-Mãe', 'Motherboards compatíveis com CPUs e periféricos');
 
 
-
-INSERT INTO produtos (nome,descricao,preco,estoque,categoria_id)
+INSERT INTO produtos (nome, descricao, preco, estoque, categoria_id)
 VALUES
-    ('Intel Core i5-10400 - 6 nucleos - 12 threads - 2.9Ghz - R$899,90-estoque:10-categoria:1(Processadores)'),
-    ('AMD Ryzen 5 5600x - 6 nucleos - 12 threads - 4.6GHz - R$1099,99-estoque:20-categoria:2(Processadores)'),
-    ('Memoria DDR4 8GB 2666MHz - Kingston Fury Beast- R$189,90-estoque:20-categoria:2(Memoria Ram)'),
-    ('Memoria DDR4 16GB 3200MHz - Corsair Vengeance LPX- R$349,50 - estoque:15-categoria:2(Memoria Ram)'),
-    ('NVIDIA GeForce GTX 1660 6GB GDDR5 - R$1450,00-estoque:5-categoria:3(Placas de Video)');
-  SELECT * FROM categoria
+  ('Intel Core i5-10400', '6 núcleos - 12 threads 2.9GHz', 899.90, 10, 1),
+  ('AMD Ryzen 5 5600x', '6 núcleos - 12 threads 4.6GHz', 1099.99, 20, 1),
+  ('Memória DDR4 8GB 2666MHz - Kingston Fury Beast', 'Módulo DDR4 para desktops', 189.90, 20, 2),
+  ('Memória DDR4 16GB 3200MHz - Corsair Vengeance LPX', 'Alta performance para jogos e tarefas pesadas', 349.50, 15, 2),
+  ('NVIDIA GeForce GTX 1660 6GB GDDR5', 'GPU para jogos de médio desempenho', 1450.00, 5, 3);
+
+  
+
+  SELECT * FROM produtos 
