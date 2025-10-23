@@ -1,3 +1,5 @@
+drop database ecommerce_pc;
+
 -- Criação do banco de dados
 CREATE DATABASE IF NOT EXISTS ecommerce_pc
     DEFAULT CHARACTER SET = utf8mb4;
@@ -20,6 +22,7 @@ CREATE TABLE categorias (
     nome VARCHAR(50) NOT NULL UNIQUE,
     descricao TEXT
 );
+
 
 -- Tabela de produtos
 CREATE TABLE produtos (
@@ -53,7 +56,17 @@ CREATE TABLE item_pedido (
     FOREIGN KEY (produto_id) REFERENCES produtos(id)
 );
 
-INSERT INTO categoria (nome, descricao)
+CREATE TABLE usuarios (
+    usuario_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    tipo VARCHAR(20) DEFAULT 'comum',  
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+INSERT INTO categorias (nome, descricao)
 VALUES 
   ('Processadores', 'CPUs para desktop'),
   ('Memoria RAM', 'Módulos de memória para PCs'),
@@ -70,6 +83,29 @@ VALUES
   ('Memória DDR4 16GB 3200MHz - Corsair Vengeance LPX', 'Alta performance para jogos e tarefas pesadas', 349.50, 15, 2),
   ('NVIDIA GeForce GTX 1660 6GB GDDR5', 'GPU para jogos de médio desempenho', 1450.00, 5, 3);
 
-  
 
-  SELECT * FROM produtos 
+INSERT INTO clientes (nome, email, senha, endereco)
+VALUES
+    ('SQL', 'sql@gmail.com', 'sql123', 'Sao Paulo'),
+    ('Joao', 'joao123@gmail.com', 'joao123', 'Salto'),
+    ('Ana', 'ana123@gmail.com', 'ana123', 'Rio de Janeiro');
+
+    INSERT INTO usuarios (nome, email, senha, tipo)
+VALUES 
+  ('Administrador', 'admin@email.com', '$2b$10$vcShCSwNHImUdm0/x2xk3e9qBh1DYR4vY.MUvGoX92e6N/ZYnBBNe', 'admin');
+
+    SELECT * FROM produtos
+
+    SELECT * FROM categorias 
+
+    SELECT  descricao , categoria_id  FROM produtos
+
+    SELECT * FROM clientes
+
+    DROP TABLE categoria;
+
+    SELECT produtos.*, 
+        categorias.nome AS categoria_nome
+    FROM produtos
+    JOIN categorias ON produtos.categoria_id = cod_id 
+    WHERE produtos.id = 3

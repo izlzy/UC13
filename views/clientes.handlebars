@@ -1,0 +1,11 @@
+<h1>Lista de Clientes</h1>
+
+{{#if clientes.length}}
+    {{#each clientes}}
+        <h2>{{nome}}</h2>
+        <p><strong>Nome: {{nome}}</p>
+        <p><strong>Email: {{email}}</p>
+    </div>
+    {{/each}}
+{{else}}    <p>Sem clientes cadastrados.</p>
+{{/if}}
